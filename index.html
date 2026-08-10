@@ -290,4 +290,6 @@ function downloadMonthly(){
 }
 function clearData(){if(confirm("Clear all data?")){d={expenses:[],salary:[],emi:[],loan:[],currency:"₹",theme:"light",reportDefault:"daily"};save();reportInit()}}
 $("#theme").onclick=()=>{d.theme=d.theme==="dark"?"light":"dark";save()};$("#themeSelect").onchange=e=>{d.theme=e.target.value;save()};$("#currency").onchange=e=>{d.currency=e.target.value;save()};$("#reportDefault").onchange=e=>{d.reportDefault=e.target.value;save()};$("#dailyDate").onchange=updateReports;$("#monthlyMonth").onchange=updateReports;render();reportInit();
-</script></body></html>
+</script></body></html><style id="remove-plus-buttons-only">
+.fab,.add{display:none !important;}
+</style>

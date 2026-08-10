@@ -83,15 +83,22 @@ nav button:nth-child(n+6){display:block}
 <button onclick="mobileGo('settings')">⚙️<span>Settings</span></button>
 </div></div></div></aside>
 <main class="main"><div class="top"><div><small>PERSONAL FINANCE</small><h1>Mithra Expenses Tracker</h1></div><button class="iconbtn" id="theme">🌙</button></div>
-<section class="page active" id="home"><div class="hero"><div><small>WELCOME BACK</small><h2>Save your money with Mithra ✨</h2><p>Track income, expenses, EMI and loans in one place.</p></div><div class="wallet">👛</div></div>
+<section class="page active" id="home"><div class="card welcome-quick-access">
+  <div class="head"><h3>Quick Access</h3><span class="muted">Expenses • Salary • EMI</span></div>
+  <div class="quick-grid">
+    <button class="quick-item" onclick="showPage('expenses')"><span>💸</span><strong>Expenses</strong><small>Add & manage expenses</small></button>
+    <button class="quick-item" onclick="showPage('salary')"><span>💰</span><strong>Salary</strong><small>Monthly salary</small></button>
+    <button class="quick-item" onclick="showPage('emi')"><span>💳</span><strong>EMI</strong><small>Paid & pending</small></button>
+  </div>
+</div><div class="wallet">👛</div></div>
 <div class="balance"><div><small>Total Balance</small><strong id="balance">₹0</strong><div class="mini"><span>↓ Income <b id="income">₹0</b></span><span>↑ Expenses <b id="expense">₹0</b></span></div></div><div class="coin">₹</div></div>
 <div class="stats"><div class="stat"><small>Total Income</small><b id="income2">₹0</b></div><div class="stat"><small>Total Expenses</small><b id="expense2">₹0</b></div><div class="stat"><small>Savings</small><b id="savings">₹0</b></div></div>
 <div class="grid"><div class="card"><div class="head"><h3>Statistics</h3><span class="muted" id="month"></span></div><div id="chart" class="chart"></div></div><div class="card"><div class="head"><h3>Upcoming EMI</h3><button class="link" onclick="go('emi')">See All</button></div><div id="upcoming"></div></div></div>
 <div class="card"><div class="head"><h3>Recent Expenses</h3><button class="link" onclick="go('expenses')">See All</button></div><div id="recent"></div></div></section>
-<section class="page" id="expenses"><div class="title"><div><small>DAILY & MONTHLY</small><h2>Expenses</h2></div><button class="add" onclick="openForm('expense')">＋ Add</button></div><div class="card" id="expenseList"></div></section>
-<section class="page" id="salary"><div class="title"><div><small>MONTH WISE</small><h2>Salary</h2></div><button class="add" onclick="openForm('salary')">＋ Add</button></div><div class="card" id="salaryList"></div></section>
-<section class="page" id="emi"><div class="title"><div><small>MONTHLY COMMITMENTS</small><h2>EMI</h2></div><button class="add" onclick="openForm('emi')">＋ Add</button></div><div class="card" id="emiList"></div></section>
-<section class="page" id="loan"><div class="title"><div><small>BORROWED MONEY</small><h2>Loan</h2></div><button class="add" onclick="openForm('loan')">＋ Add</button></div><div class="card" id="loanList"></div></section>
+<section class="page" id="expenses"><div class="title"><div><small>DAILY & MONTHLY</small><h2>Expenses</h2></div></div><div class="card" id="expenseList"></div></section>
+<section class="page" id="salary"><div class="title"><div><small>MONTH WISE</small><h2>Salary</h2></div></div><div class="card" id="salaryList"></div></section>
+<section class="page" id="emi"><div class="title"><div><small>MONTHLY COMMITMENTS</small><h2>EMI</h2></div></div><div class="card" id="emiList"></div></section>
+<section class="page" id="loan"><div class="title"><div><small>BORROWED MONEY</small><h2>Loan</h2></div></div><div class="card" id="loanList"></div></section>
 <section class="page" id="reports">
 <div class="title"><div><small>DAILY & MONTHLY</small><h2>Reports</h2></div></div>
 <div class="reporttools">
@@ -130,7 +137,7 @@ nav button:nth-child(n+6){display:block}
   <div class="settings-note">Your settings and finance data are stored privately in this browser using Local Storage.</div>
   <button class="danger" onclick="clearData()">Clear all data</button>
 </div></section></main>
-<button class="fab" onclick="openForm('expense')">＋</button><div id="modal" class="modal"></div>
+<div id="modal" class="modal"></div>
 <script>
 const KEY="mithra-final-data";let d=JSON.parse(localStorage.getItem(KEY)||"null")||{expenses:[],salary:[],emi:[],loan:[],currency:"₹",theme:"light",reportDefault:"daily"};
 const $=s=>document.querySelector(s),$$=s=>document.querySelectorAll(s);

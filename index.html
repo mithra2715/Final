@@ -90,7 +90,7 @@ nav button:nth-child(n+6){display:block}
 <button onclick="mobileGo('settings')">⚙️<span>Settings</span></button>
 </div></div></div></aside>
 <main class="main"><div class="top"><div><small>PERSONAL FINANCE</small><h1>Mithra Expenses Tracker</h1></div><button class="iconbtn" id="theme">🌙</button></div>
-<section class="page active" id="home"><div class="wallet">👛</div></div>
+<section class="page active" id="home"></div>
 <div class="balance"><div><small>Total Balance</small><strong id="balance">₹0</strong><div class="mini"><span>↓ Income <b id="income">₹0</b></span><span>↑ Expenses <b id="expense">₹0</b></span></div></div><div class="coin">₹</div></div>
 <div class="stats"><div class="stat"><small>Total Income</small><b id="income2">₹0</b></div><div class="stat"><small>Total Expenses</small><b id="expense2">₹0</b></div><div class="stat"><small>Savings</small><b id="savings">₹0</b></div></div>
 <div class="grid"><div class="card"><div class="head"><h3>Statistics</h3><span class="muted" id="month"></span></div><div id="chart" class="chart"></div></div><div class="card"><div class="head"><h3>Upcoming EMI</h3><button class="link" onclick="go('emi')">See All</button></div><div id="upcoming"></div></div></div>
@@ -137,7 +137,7 @@ nav button:nth-child(n+6){display:block}
   <div class="settings-note">Your settings and finance data are stored privately in this browser using Local Storage.</div>
   <button class="danger" onclick="clearData()">Clear all data</button>
 </div></section></main>
-<button class="fab" onclick="openCurrentForm()" aria-label="Add">+</button>
+<button class="fab" id="globalFab" onclick="openCurrentForm()" aria-label="Add" style="display:none">+</button>
 <div id="modal" class="modal"></div>
 <script>
 const KEY="mithra-final-data";let d=JSON.parse(localStorage.getItem(KEY)||"null")||{expenses:[],salary:[],emi:[],loan:[],currency:"₹",theme:"light",reportDefault:"daily"};
@@ -146,7 +146,7 @@ function money(n){return d.currency+(+n||0).toLocaleString("en-IN",{maximumFract
 function save(){localStorage.setItem(KEY,JSON.stringify(d));render()}
 function toggleMobileMenu(){const m=$("#mobileMenu");if(m)m.classList.toggle("show")}
 function mobileGo(p){toggleMobileMenu();go(p)}
-function go(p){const mm=$("#mobileMenu");if(mm)mm.classList.remove("show");$$(".page").forEach(x=>x.classList.remove("active"));$("#"+p).classList.add("active");$$("nav button").forEach(x=>x.classList.toggle("active",x.dataset.page===p));if(p==="reports")updateReports()}
+function go(p){const mm=$("#mobileMenu");if(mm)mm.classList.remove("show");$$(".page").forEach(x=>x.classList.remove("active"));$("#"+p).classList.add("active");$$("nav button").forEach(x=>x.classList.toggle("active",x.dataset.page===p));const fab=$("#globalFab");if(fab)fab.style.display=p==="home"?"none":"block";if(p==="reports")updateReports()}
 $$("nav button").forEach(x=>x.onclick=()=>go(x.dataset.page));
 const fields={expense:[["title","Expense name","text"],["person","Person name","text"],["amount","Amount","number"],["date","Date","date"],["category","Category","text"]],salary:[["month","Month","month"],["amount","Salary amount","number"],["note","Note","text"]],emi:[["name","EMI name","text"],["amount","Monthly EMI","number"],["firstMonth","First EMI Month","month"],["total","Total EMI count","number"],["paid","Paid EMI count","number"]],loan:[["name","Person / Bank name","text"],["amount","Loan amount","number"],["paid","Paid amount","number"],["date","Borrowed date","date"],["due","Due date","date"]]};
 function openForm(type,id=null){let key=typeKey(type),existing=id?d[key].find(x=>x.id===id):null;let h=fields[type].map(x=>'<input name="'+x[0]+'" placeholder="'+x[1]+'" type="'+x[2]+'" value="'+(existing?esc(existing[x[0]]||""):'')+'" '+(x[0]==="amount"||x[0]==="date"||x[0]==="month"?"required":"")+'>').join("");$("#modal").innerHTML='<form onsubmit="saveForm(event,\''+type+'\','+(existing?existing.id:"null")+')"><button type="button" class="close" onclick="closeForm()">×</button><h3>'+(existing?"Edit ":"Add ")+type.toUpperCase()+'</h3>'+h+'<button class="save">'+(existing?"Update":"Save")+'</button></form>';$("#modal").classList.add("show")}

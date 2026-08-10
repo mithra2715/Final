@@ -1,106 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mithra Expenses Tracker</title>
-  <link rel="stylesheet" href="css/style.css">
-</head>
-<body>
-  <div class="app-shell">
-    <aside class="sidebar">
-      <div class="brand">
-        <div class="brand-icon">₹</div>
-        <div><h1>Mithra</h1><span>Expenses Tracker</span></div>
-      </div>
-      <nav>
-        <button class="nav-btn active" data-page="dashboard">🏠 <span>Dashboard</span></button>
-        <button class="nav-btn" data-page="expenses">💸 <span>Expenses</span></button>
-        <button class="nav-btn" data-page="salary">💰 <span>Salary</span></button>
-        <button class="nav-btn" data-page="emi">💳 <span>EMI</span></button>
-        <button class="nav-btn" data-page="loan">🏦 <span>Loan</span></button>
-        <button class="nav-btn" data-page="reports">📊 <span>Reports</span></button>
-        <button class="nav-btn" data-page="settings">⚙️ <span>Settings</span></button>
-      </nav>
-      <div class="sidebar-foot">Private • Local Storage</div>
-    </aside>
-
-    <main class="main">
-      <header class="topbar">
-        <div>
-          <p class="eyebrow">Personal finance</p>
-          <h2 id="pageTitle">Mithra Expenses Tracker</h2>
-        </div>
-        <button class="theme-btn" id="themeBtn">🌙</button>
-      </header>
-
-      <section id="dashboard" class="page active-page">
-        <div class="hero">
-          <div><p class="eyebrow">Welcome back</p><h3>Manage your money with Mithra ✨</h3><p>Track daily expenses, salary, EMI and loans in one place.</p></div>
-          <div class="hero-coin">₹</div>
-        </div>
-        <div class="cards">
-          <div class="stat"><span>💰 Balance</span><strong id="balance">₹0</strong></div>
-          <div class="stat"><span>📥 Monthly Income</span><strong id="income">₹0</strong></div>
-          <div class="stat"><span>📤 Monthly Expense</span><strong id="expense">₹0</strong></div>
-          <div class="stat"><span>💎 Savings</span><strong id="savings">₹0</strong></div>
-        </div>
-        <div class="grid-2">
-          <div class="panel"><div class="panel-head"><h3>Monthly Overview</h3><span id="monthLabel"></span></div><div id="categoryBars" class="bars"></div></div>
-          <div class="panel"><div class="panel-head"><h3>Upcoming EMI</h3><button class="small-btn" data-go="emi">View all</button></div><div id="upcomingEmi"></div></div>
-        </div>
-        <div class="panel"><div class="panel-head"><h3>Recent Expenses</h3><button class="small-btn" data-go="expenses">Add / View</button></div><div id="recentExpenses"></div></div>
-      </section>
-
-      <section id="expenses" class="page">
-        <div class="section-head"><div><p class="eyebrow">Daily & monthly</p><h3>Expenses</h3></div><button class="primary" onclick="openModal('expenseModal')">+ Add Expense</button></div>
-        <div class="filters"><input id="expenseSearch" placeholder="Search expense..."><input id="expenseMonth" type="month"></div>
-        <div class="panel"><div id="expenseTable"></div></div>
-      </section>
-
-      <section id="salary" class="page">
-        <div class="section-head"><div><p class="eyebrow">Month wise income</p><h3>Salary</h3></div><button class="primary" onclick="openModal('salaryModal')">+ Add Salary</button></div>
-        <div class="panel"><div id="salaryTable"></div></div>
-      </section>
-
-      <section id="emi" class="page">
-        <div class="section-head"><div><p class="eyebrow">Monthly commitments</p><h3>EMI</h3></div><button class="primary" onclick="openModal('emiModal')">+ Add EMI</button></div>
-        <div class="panel"><div id="emiTable"></div></div>
-      </section>
-
-      <section id="loan" class="page">
-        <div class="section-head"><div><p class="eyebrow">Borrowed money</p><h3>Loan</h3></div><button class="primary" onclick="openModal('loanModal')">+ Add Loan</button></div>
-        <div class="panel"><div id="loanTable"></div></div>
-      </section>
-
-      <section id="reports" class="page">
-        <div class="section-head"><div><p class="eyebrow">Downloadable insights</p><h3>Reports</h3></div></div>
-        <div class="report-grid">
-          <button class="report-card" onclick="downloadCSV('expenses')">📄<b>Expenses CSV</b><span>Daily/monthly expense data</span></button>
-          <button class="report-card" onclick="downloadCSV('salary')">📊<b>Salary CSV</b><span>Month-wise income</span></button>
-          <button class="report-card" onclick="downloadCSV('emi')">💳<b>EMI CSV</b><span>EMI schedule</span></button>
-          <button class="report-card" onclick="downloadCSV('loan')">🏦<b>Loan CSV</b><span>Loan balances</span></button>
-          <button class="report-card" onclick="downloadAll()">⬇️<b>Full Backup JSON</b><span>All app data</span></button>
-        </div>
-        <div class="panel report-summary" id="reportSummary"></div>
-      </section>
-
-      <section id="settings" class="page">
-        <div class="section-head"><div><p class="eyebrow">Customize</p><h3>Settings</h3></div></div>
-        <div class="settings-list">
-          <label>Currency <select id="currency"><option>₹</option><option>$</option><option>€</option><option>£</option></select></label>
-          <label>Theme <select id="themeSelect"><option value="dark">Dark</option><option value="light">Light</option></select></label>
-          <button class="danger" onclick="clearData()">Clear all local data</button>
-        </div>
-      </section>
-    </main>
-  </div>
-
-  <div id="expenseModal" class="modal"><form class="modal-box" onsubmit="saveExpense(event)"><button type="button" class="close" onclick="closeModal('expenseModal')">×</button><h3>Add Expense</h3><input name="title" placeholder="Expense name" required><input name="amount" type="number" min="0" step="0.01" placeholder="Amount" required><input name="date" type="date" required><select name="category"><option>Food</option><option>Travel</option><option>Shopping</option><option>Bills</option><option>Health</option><option>Other</option></select><input name="method" placeholder="Payment method"><button class="primary">Save Expense</button></form></div>
-  <div id="salaryModal" class="modal"><form class="modal-box" onsubmit="saveSalary(event)"><button type="button" class="close" onclick="closeModal('salaryModal')">×</button><h3>Add Salary</h3><input name="month" type="month" required><input name="amount" type="number" min="0" step="0.01" placeholder="Salary amount" required><input name="note" placeholder="Note"><button class="primary">Save Salary</button></form></div>
-  <div id="emiModal" class="modal"><form class="modal-box" onsubmit="saveEmi(event)"><button type="button" class="close" onclick="closeModal('emiModal')">×</button><h3>Add EMI</h3><input name="name" placeholder="EMI name" required><input name="amount" type="number" min="0" step="0.01" placeholder="Monthly EMI" required><input name="due" type="date" required><input name="total" type="number" min="1" placeholder="Total EMI count" required><input name="paid" type="number" min="0" placeholder="Paid EMI count" value="0"><button class="primary">Save EMI</button></form></div>
-  <div id="loanModal" class="modal"><form class="modal-box" onsubmit="saveLoan(event)"><button type="button" class="close" onclick="closeModal('loanModal')">×</button><h3>Add Loan</h3><input name="name" placeholder="Person / Bank name" required><input name="amount" type="number" min="0" step="0.01" placeholder="Loan amount" required><input name="paid" type="number" min="0" step="0.01" placeholder="Paid amount" value="0"><input name="date" type="date" required><input name="due" type="date"><button class="primary">Save Loan</button></form></div>
-
-  <script src="js/app.js"></script>
-</body>
-</html>
+<!doctype html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#7c3aed"><title>Mithra Expenses Tracker</title><link rel="stylesheet" href="css/style.css"></head><body>
+<div class="app"><aside><div class="logo"><div class="logo3d">₹</div><div><b>Mithra</b><small>Expenses Tracker</small></div></div><nav>
+<button class="active" data-page="home">⌂ <span>Home</span></button><button data-page="expenses">💸 <span>Expenses</span></button><button data-page="salary">💰 <span>Salary</span></button><button data-page="emi">💳 <span>EMI</span></button><button data-page="loan">🏦 <span>Loan</span></button><button data-page="reports">📊 <span>Reports</span></button><button data-page="settings">⚙️ <span>Settings</span></button></nav></aside>
+<main><header><div><small>Personal finance</small><h1>Mithra Expenses Tracker</h1></div><button id="theme">☼</button></header>
+<section id="home" class="page active"><div class="welcome"><div><small>WELCOME BACK</small><h2>Save your money with Mithra ✨</h2><p>Track your income, expenses, EMI and loans in one place.</p></div><div class="wallet">👛</div></div>
+<div class="balance"><div><span>Total Balance⌄</span><strong id="balance">₹0</strong><div class="balance-mini"><span>↓ Income <b id="income">₹0</b></span><span>↑ Expenses <b id="expense">₹0</b></span></div></div><div class="coin">₹</div></div>
+<div class="stats"><article><span>Total Income</span><b id="income2">₹0</b></article><article><span>Total Expenses</span><b id="expense2">₹0</b></article><article><span>Savings</span><b id="save2">₹0</b></article></div>
+<div class="grid"><div class="card"><div class="head"><h3>Statistics</h3><span id="month"></span></div><div id="bars" class="chart"></div></div><div class="card"><div class="head"><h3>Upcoming EMI</h3><button onclick="show('emi')">See All</button></div><div id="upcoming"></div></div></div>
+<div class="card"><div class="head"><h3>Recent Expenses</h3><button onclick="show('expenses')">See All</button></div><div id="recent"></div></div></section>
+<section id="expenses" class="page"><div class="title"><div><small>DAILY & MONTHLY</small><h2>Expenses</h2></div><button class="add" onclick="modal('expense')">＋ Add</button></div><div class="card" id="expenseList"></div></section>
+<section id="salary" class="page"><div class="title"><div><small>MONTH WISE</small><h2>Salary</h2></div><button class="add" onclick="modal('salary')">＋ Add</button></div><div class="card" id="salaryList"></div></section>
+<section id="emi" class="page"><div class="title"><div><small>MONTHLY COMMITMENTS</small><h2>EMI</h2></div><button class="add" onclick="modal('emi')">＋ Add</button></div><div class="card" id="emiList"></div></section>
+<section id="loan" class="page"><div class="title"><div><small>BORROWED MONEY</small><h2>Loan</h2></div><button class="add" onclick="modal('loan')">＋ Add</button></div><div class="card" id="loanList"></div></section>
+<section id="reports" class="page"><div class="title"><div><small>DOWNLOAD</small><h2>Reports</h2></div></div><div class="reportgrid"><button onclick="csv('expenses')">📄<b>Expenses CSV</b><small>Daily / monthly</small></button><button onclick="csv('salary')">💰<b>Salary CSV</b><small>Month wise</small></button><button onclick="csv('emi')">💳<b>EMI CSV</b><small>EMI schedule</small></button><button onclick="csv('loan')">🏦<b>Loan CSV</b><small>Loan balances</small></button><button onclick="backup()">⬇️<b>Full Backup</b><small>JSON data</small></button></div></section>
+<section id="settings" class="page"><div class="title"><div><small>CUSTOMIZE</small><h2>Settings</h2></div></div><div class="card settings"><label>Currency<select id="currency"><option>₹</option><option>$</option><option>€</option><option>£</option></select></label><label>Theme<select id="themeSelect"><option value="light">Light</option><option value="dark">Dark</option></select></label><button class="danger" onclick="clearAll()">Clear all data</button></div></section>
+</main></div><button class="fab" onclick="modal('expense')">＋</button><div id="modal" class="modal"></div><script src="js/app.js"></script></body></html>

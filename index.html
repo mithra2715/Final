@@ -86,14 +86,7 @@ nav button:nth-child(n+6){display:block}
 <section class="page active" id="home"><div class="hero"><div><small>WELCOME BACK</small><h2>Save your money with Mithra ✨</h2><p>Track income, expenses, EMI and loans in one place.</p></div><div class="wallet">👛</div></div>
 <div class="balance"><div><small>Total Balance</small><strong id="balance">₹0</strong><div class="mini"><span>↓ Income <b id="income">₹0</b></span><span>↑ Expenses <b id="expense">₹0</b></span></div></div><div class="coin">₹</div></div>
 <div class="stats"><div class="stat"><small>Total Income</small><b id="income2">₹0</b></div><div class="stat"><small>Total Expenses</small><b id="expense2">₹0</b></div><div class="stat"><small>Savings</small><b id="savings">₹0</b></div></div>
-<div class="grid"><div class="card"><div class="head"><h3>Statistics</h3><span class="muted" id="month"></span></div><div id="chart" class="chart"></div></div><div class="card quick-access">
-<div class="head"><h3>Quick Access</h3><span class="muted">Reports & Settings</span></div>
-<div class="quick-grid">
-<button onclick="go('reports');setReport('daily')">📅 <b>Daily Report</b><small>Today / date-wise</small></button>
-<button onclick="go('reports');setReport('monthly')">🗓️ <b>Monthly Report</b><small>Month-wise summary</small></button>
-<button onclick="go('settings')">⚙️ <b>Settings</b><small>Currency & theme</small></button>
-</div></div>
-<div class="card"><div class="head"><h3>Upcoming EMI</h3><button class="link" onclick="go('emi')">See All</button></div><div id="upcoming"></div></div></div>
+<div class="grid"><div class="card"><div class="head"><h3>Statistics</h3><span class="muted" id="month"></span></div><div id="chart" class="chart"></div></div><div class="card"><div class="head"><h3>Upcoming EMI</h3><button class="link" onclick="go('emi')">See All</button></div><div id="upcoming"></div></div></div>
 <div class="card"><div class="head"><h3>Recent Expenses</h3><button class="link" onclick="go('expenses')">See All</button></div><div id="recent"></div></div></section>
 <section class="page" id="expenses"><div class="title"><div><small>DAILY & MONTHLY</small><h2>Expenses</h2></div><button class="add" onclick="openForm('expense')">＋ Add</button></div><div class="card" id="expenseList"></div></section>
 <section class="page" id="salary"><div class="title"><div><small>MONTH WISE</small><h2>Salary</h2></div><button class="add" onclick="openForm('salary')">＋ Add</button></div><div class="card" id="salaryList"></div></section>

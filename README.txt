@@ -1,24 +1,19 @@
-MITHRA EXPENSES TRACKER – SETTINGS + DAILY/MONTHLY REPORTS
+MITHRA EMI REPAYMENT SCHEDULE FIX
 
-Replace the existing GitHub Pages Final/index.html with this index.html.
+Replace GitHub Pages Final/index.html with this file.
 
-Mobile bottom navigation now shows ALL:
-Home, Expenses, Salary, EMI, Loan, Reports, Settings.
+EMI Add form now asks:
+- EMI name
+- Monthly EMI
+- First EMI Month
+- Total EMI count
+- Paid EMI count
 
-Home also has Quick Access:
-- Daily Report
-- Monthly Report
-- Settings
+Each EMI card now shows:
+- Paid / Pending / Not Paid / Total counts
+- Paid amount / Total repayment amount
+- Month-wise repayment schedule
+- Each month's status button: Paid -> Pending -> Not Paid -> Paid
+- Upcoming EMI uses the next unpaid month
 
-Reports page:
-- Date-wise Daily Report
-- Month-wise Monthly Report
-- Daily/Monthly totals
-- Salary and EMI monthly totals
-- CSV downloads and full backup
-
-Settings:
-- Currency
-- Light/Dark theme
-- Default report
-- Local Storage
+Existing old EMI records are automatically converted into a schedule based on their first due month and paid count.

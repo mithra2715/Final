@@ -35,8 +35,8 @@ nav button:nth-child(n+6){display:block}
 .reporttools{display:grid;gap:15px}.filters{display:grid;grid-template-columns:1fr 1fr;gap:12px}.filterbox{background:#fff;border-radius:18px;padding:16px;box-shadow:0 12px 30px #6d28d910}.filterbox label{display:grid;gap:7px;color:#6f7282;font-weight:700}.filterbox input,.filterbox select{padding:11px;border:1px solid #e4deed;border-radius:11px;background:#fff}.reportsummary{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}.reportstat{background:#fff;border-radius:17px;padding:16px;box-shadow:0 12px 30px #6d28d910}.reportstat small{display:block;color:#8c8fa0}.reportstat b{display:block;font-size:20px;margin-top:6px}.downloadrow{display:flex;gap:10px;flex-wrap:wrap}.downloadrow button{border:0;border-radius:11px;padding:11px 15px;font-weight:800;color:#fff;background:linear-gradient(135deg,#6d28d9,#ec4899)}.settings-note{font-size:12px;color:#9295a7}
 @media(max-width:600px){.filters{grid-template-columns:1fr}.reportsummary{grid-template-columns:1fr 1fr}.downloadrow{display:grid;grid-template-columns:1fr 1fr}}
 
-.quick-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.quick-grid button{border:0;background:#faf8ff;border-radius:16px;padding:15px;text-align:left;color:#26283d;box-shadow:inset 0 0 0 1px #eee7fa}.quick-grid button b{display:block;margin-top:8px}.quick-grid button small{display:block;color:#9295a7;margin-top:4px}.quick-grid button:active{transform:scale(.98)}
-@media(max-width:600px){.quick-grid{grid-template-columns:1fr}.quick-grid button{padding:13px}}
+.quick-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}.quick-grid button{border:0;background:#faf8ff;border-radius:14px;padding:11px;text-align:left;color:#26283d;box-shadow:inset 0 0 0 1px #eee7fa}.quick-grid button b{display:block;margin-top:6px}.quick-grid button small{display:block;color:#9295a7;margin-top:3px}.quick-grid button:active{transform:scale(.98)}
+@media(max-width:600px){.quick-grid{grid-template-columns:repeat(2,1fr)}.quick-grid button{padding:10px}}
 
 
 .mobile-bottom-actions,.mobile-menu-overlay{display:none}
@@ -61,15 +61,7 @@ nav button:nth-child(n+6){display:block}
 </style>
 <style>
 .emi-summary{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:12px 0}.emi-summary div{background:#faf8ff;border-radius:12px;padding:9px;text-align:center}.emi-summary small{display:block;color:#888}.emi-summary b{display:block;margin-top:3px}.emi-schedule{margin-top:12px}.emi-schedule h4{margin:0 0 8px}.emi-row{display:grid;grid-template-columns:32px 1fr auto;align-items:center;gap:8px;padding:9px;background:#faf9fc;border-radius:10px;margin:6px 0}.emi-row small{display:block;color:#888}.emi-status{border:0;border-radius:999px;padding:7px 10px;font-weight:700}.emi-status.paid{background:#dcfce7;color:#15803d}.emi-status.pending{background:#fef3c7;color:#b45309}.emi-status.notpaid{background:#fee2e2;color:#b91c1c}.emi-toggle{border:0;border-radius:10px;padding:7px 10px;background:#f0e9ff;color:#7c3aed;font-weight:700}@media(max-width:600px){.emi-summary{grid-template-columns:repeat(2,1fr)}.emi-row{grid-template-columns:26px 1fr auto}.emi-status{font-size:11px;padding:6px 7px}}
-</style>
-<style id="quick-button-adjustment">
-.welcome-quick-access .quick-grid{gap:10px;}
-.welcome-quick-access .quick-item{padding:10px 14px;min-height:58px;}
-.welcome-quick-access .quick-item span{font-size:18px;}
-.welcome-quick-access .quick-item strong{font-size:16px;}
-.welcome-quick-access .quick-item small{font-size:12px;}
-</style>
-</head>
+</style></head>
 <body>
 <aside class="sidebar"><div class="logo"><div class="logoicon">₹</div><div><b>Mithra</b><small>Expenses Tracker</small></div></div><nav>
 <button class="active" data-page="home">🏠 <span>Home</span></button><button data-page="expenses">💸 <span>Expenses</span></button><button data-page="salary">💰 <span>Salary</span></button><button data-page="emi">💳 <span>EMI</span></button><button data-page="loan">🏦 <span>Loan</span></button><button data-page="reports">📊 <span>Reports</span></button><button data-page="settings">⚙️ <span>Settings</span></button></nav>
@@ -92,11 +84,10 @@ nav button:nth-child(n+6){display:block}
 </div></div></div></aside>
 <main class="main"><div class="top"><div><small>PERSONAL FINANCE</small><h1>Mithra Expenses Tracker</h1></div><button class="iconbtn" id="theme">🌙</button></div>
 <section class="page active" id="home"><div class="card welcome-quick-access">
-  <div class="head"><h3>Quick Access</h3><span class="muted">Expenses • Salary • EMI</span></div>
+  <div class="head"><h3>Quick Access</h3><span class="muted">Expenses • Salary</span></div>
   <div class="quick-grid">
-    <button class="quick-item" onclick="showPage('expenses')"><span>💸</span><strong>Expenses</strong><small>Add & manage expenses</small></button>
-    <button class="quick-item" onclick="showPage('salary')"><span>💰</span><strong>Salary</strong><small>Monthly salary</small></button>
-    <button class="quick-item" onclick="showPage('emi')"><span>💳</span><strong>EMI</strong><small>Paid & pending</small></button>
+    <button class="quick-item" onclick="go('expenses')"><span>💸</span><strong>Expenses</strong><small>Add & manage expenses</small></button>
+    <button class="quick-item" onclick="go('salary')"><span>💰</span><strong>Salary</strong><small>Monthly salary</small></button>
   </div>
 </div><div class="wallet">👛</div></div>
 <div class="balance"><div><small>Total Balance</small><strong id="balance">₹0</strong><div class="mini"><span>↓ Income <b id="income">₹0</b></span><span>↑ Expenses <b id="expense">₹0</b></span></div></div><div class="coin">₹</div></div>

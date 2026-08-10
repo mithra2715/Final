@@ -19,9 +19,28 @@ nav{display:grid;gap:7px}nav button{border:0;background:transparent;color:#70748
 .modal{display:none;position:fixed;inset:0;background:#16062a66;backdrop-filter:blur(7px);z-index:30;place-items:center;padding:18px}.modal.show{display:grid}.modal form{width:min(430px,100%);background:#fff;border-radius:22px;padding:22px;display:grid;gap:11px;position:relative;box-shadow:0 25px 70px #0004}.modal h3{margin:0}.modal .close{position:absolute;right:13px;top:8px;border:0;background:none;font-size:26px}.save{border:0;border-radius:11px;padding:12px;color:#fff;font-weight:800;background:linear-gradient(135deg,#6d28d9,#ec4899)}
 .dark{background:#0d0e1a;color:#eee}.dark .sidebar,.dark .card,.dark .stat,.dark .hero,.dark .report,.dark .iconbtn,.dark .modal form{background:#181a2b;color:#eee}.dark .row{border-color:#2c2e43}.dark input,.dark select{background:#22243a!important;color:#fff;border-color:#393c55!important}
 @media(max-width:900px){.sidebar{width:76px;padding:20px 8px}.logo div:last-child,nav span{display:none}.logo{justify-content:center;margin-bottom:25px}nav button{text-align:center;font-size:20px;padding:12px 7px}.main{margin-left:76px;padding:20px}.grid{grid-template-columns:1fr}.reportgrid{grid-template-columns:repeat(2,1fr)}.fab{display:block}}
-@media(max-width:600px){.sidebar{left:10px;right:10px;bottom:10px;top:auto;width:auto;height:62px;padding:5px 8px;border-radius:21px;box-shadow:0 10px 35px #4c1d9530}.logo{display:none}nav{display:flex;justify-content:space-around;gap:2px}nav button{padding:8px;font-size:18px}nav button:nth-child(n+6){display:none}.main{margin:0;padding:14px 14px 88px}.top h1{font-size:21px}.hero{padding:19px}.hero h2{font-size:20px}.wallet{width:64px;height:64px;font-size:34px}.balance{padding:20px}.balance strong{font-size:29px}.mini{gap:15px}.coin{width:52px;height:52px}.stats{gap:9px}.stat{padding:13px}.stat b{font-size:17px}.stat small{font-size:10px}.row{grid-template-columns:1fr auto}.row .hide{display:none}.reportgrid{grid-template-columns:1fr 1fr}}
+@media(max-width:600px){
+.sidebar{left:8px;right:8px;bottom:8px;top:auto;width:auto;height:72px;padding:6px;border-radius:22px;box-shadow:0 10px 35px #4c1d9530}
+.logo{display:none}
+nav{display:flex;justify-content:space-between;gap:1px;width:100%;overflow:hidden}
+nav button{flex:1;min-width:0;padding:6px 2px;font-size:17px;line-height:1.05;border-radius:12px}
+nav button span{display:block!important;font-size:8px;margin-top:4px;white-space:nowrap}
+nav button:nth-child(n+6){display:block}
+.main{margin:0;padding:14px 14px 98px}
+.top h1{font-size:21px}.hero{padding:19px}.hero h2{font-size:20px}.wallet{width:64px;height:64px;font-size:34px}
+.balance{padding:20px}.balance strong{font-size:29px}.mini{gap:15px}.coin{width:52px;height:52px}
+.stats{gap:9px}.stat{padding:13px}.stat b{font-size:17px}.stat small{font-size:10px}.row{grid-template-columns:1fr auto}.row .hide{display:none}.reportgrid{grid-template-columns:1fr 1fr}
+}
+
+.reporttools{display:grid;gap:15px}.filters{display:grid;grid-template-columns:1fr 1fr;gap:12px}.filterbox{background:#fff;border-radius:18px;padding:16px;box-shadow:0 12px 30px #6d28d910}.filterbox label{display:grid;gap:7px;color:#6f7282;font-weight:700}.filterbox input,.filterbox select{padding:11px;border:1px solid #e4deed;border-radius:11px;background:#fff}.reportsummary{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}.reportstat{background:#fff;border-radius:17px;padding:16px;box-shadow:0 12px 30px #6d28d910}.reportstat small{display:block;color:#8c8fa0}.reportstat b{display:block;font-size:20px;margin-top:6px}.downloadrow{display:flex;gap:10px;flex-wrap:wrap}.downloadrow button{border:0;border-radius:11px;padding:11px 15px;font-weight:800;color:#fff;background:linear-gradient(135deg,#6d28d9,#ec4899)}.settings-note{font-size:12px;color:#9295a7}
+@media(max-width:600px){.filters{grid-template-columns:1fr}.reportsummary{grid-template-columns:1fr 1fr}.downloadrow{display:grid;grid-template-columns:1fr 1fr}}
+
+.quick-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.quick-grid button{border:0;background:#faf8ff;border-radius:16px;padding:15px;text-align:left;color:#26283d;box-shadow:inset 0 0 0 1px #eee7fa}.quick-grid button b{display:block;margin-top:8px}.quick-grid button small{display:block;color:#9295a7;margin-top:4px}.quick-grid button:active{transform:scale(.98)}
+@media(max-width:600px){.quick-grid{grid-template-columns:1fr}.quick-grid button{padding:13px}}
 </style>
-</head>
+<style>
+.emi-summary{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:12px 0}.emi-summary div{background:#faf8ff;border-radius:12px;padding:9px;text-align:center}.emi-summary small{display:block;color:#888}.emi-summary b{display:block;margin-top:3px}.emi-schedule{margin-top:12px}.emi-schedule h4{margin:0 0 8px}.emi-row{display:grid;grid-template-columns:32px 1fr auto;align-items:center;gap:8px;padding:9px;background:#faf9fc;border-radius:10px;margin:6px 0}.emi-row small{display:block;color:#888}.emi-status{border:0;border-radius:999px;padding:7px 10px;font-weight:700}.emi-status.paid{background:#dcfce7;color:#15803d}.emi-status.pending{background:#fef3c7;color:#b45309}.emi-status.notpaid{background:#fee2e2;color:#b91c1c}.emi-toggle{border:0;border-radius:10px;padding:7px 10px;background:#f0e9ff;color:#7c3aed;font-weight:700}@media(max-width:600px){.emi-summary{grid-template-columns:repeat(2,1fr)}.emi-row{grid-template-columns:26px 1fr auto}.emi-status{font-size:11px;padding:6px 7px}}
+</style></head>
 <body>
 <aside class="sidebar"><div class="logo"><div class="logoicon">₹</div><div><b>Mithra</b><small>Expenses Tracker</small></div></div><nav>
 <button class="active" data-page="home">🏠 <span>Home</span></button><button data-page="expenses">💸 <span>Expenses</span></button><button data-page="salary">💰 <span>Salary</span></button><button data-page="emi">💳 <span>EMI</span></button><button data-page="loan">🏦 <span>Loan</span></button><button data-page="reports">📊 <span>Reports</span></button><button data-page="settings">⚙️ <span>Settings</span></button></nav></aside>
@@ -29,40 +48,171 @@ nav{display:grid;gap:7px}nav button{border:0;background:transparent;color:#70748
 <section class="page active" id="home"><div class="hero"><div><small>WELCOME BACK</small><h2>Save your money with Mithra ✨</h2><p>Track income, expenses, EMI and loans in one place.</p></div><div class="wallet">👛</div></div>
 <div class="balance"><div><small>Total Balance</small><strong id="balance">₹0</strong><div class="mini"><span>↓ Income <b id="income">₹0</b></span><span>↑ Expenses <b id="expense">₹0</b></span></div></div><div class="coin">₹</div></div>
 <div class="stats"><div class="stat"><small>Total Income</small><b id="income2">₹0</b></div><div class="stat"><small>Total Expenses</small><b id="expense2">₹0</b></div><div class="stat"><small>Savings</small><b id="savings">₹0</b></div></div>
-<div class="grid"><div class="card"><div class="head"><h3>Statistics</h3><span class="muted" id="month"></span></div><div id="chart" class="chart"></div></div><div class="card"><div class="head"><h3>Upcoming EMI</h3><button class="link" onclick="go('emi')">See All</button></div><div id="upcoming"></div></div></div>
+<div class="grid"><div class="card"><div class="head"><h3>Statistics</h3><span class="muted" id="month"></span></div><div id="chart" class="chart"></div></div><div class="card quick-access">
+<div class="head"><h3>Quick Access</h3><span class="muted">Reports & Settings</span></div>
+<div class="quick-grid">
+<button onclick="go('reports');setReport('daily')">📅 <b>Daily Report</b><small>Today / date-wise</small></button>
+<button onclick="go('reports');setReport('monthly')">🗓️ <b>Monthly Report</b><small>Month-wise summary</small></button>
+<button onclick="go('settings')">⚙️ <b>Settings</b><small>Currency & theme</small></button>
+</div></div>
+<div class="card"><div class="head"><h3>Upcoming EMI</h3><button class="link" onclick="go('emi')">See All</button></div><div id="upcoming"></div></div></div>
 <div class="card"><div class="head"><h3>Recent Expenses</h3><button class="link" onclick="go('expenses')">See All</button></div><div id="recent"></div></div></section>
 <section class="page" id="expenses"><div class="title"><div><small>DAILY & MONTHLY</small><h2>Expenses</h2></div><button class="add" onclick="openForm('expense')">＋ Add</button></div><div class="card" id="expenseList"></div></section>
 <section class="page" id="salary"><div class="title"><div><small>MONTH WISE</small><h2>Salary</h2></div><button class="add" onclick="openForm('salary')">＋ Add</button></div><div class="card" id="salaryList"></div></section>
 <section class="page" id="emi"><div class="title"><div><small>MONTHLY COMMITMENTS</small><h2>EMI</h2></div><button class="add" onclick="openForm('emi')">＋ Add</button></div><div class="card" id="emiList"></div></section>
 <section class="page" id="loan"><div class="title"><div><small>BORROWED MONEY</small><h2>Loan</h2></div><button class="add" onclick="openForm('loan')">＋ Add</button></div><div class="card" id="loanList"></div></section>
-<section class="page" id="reports"><div class="title"><div><small>DOWNLOAD</small><h2>Reports</h2></div></div><div class="reportgrid"><button class="report" onclick="csv('expenses')">📄 <b>Expenses CSV</b><small>Daily / monthly expenses</small></button><button class="report" onclick="csv('salary')">💰 <b>Salary CSV</b><small>Month-wise salary</small></button><button class="report" onclick="csv('emi')">💳 <b>EMI CSV</b><small>EMI schedule</small></button><button class="report" onclick="csv('loan')">🏦 <b>Loan CSV</b><small>Loan balances</small></button><button class="report" onclick="backup()">⬇️ <b>Full Backup</b><small>JSON data</small></button></div></section>
-<section class="page" id="settings"><div class="title"><div><small>CUSTOMIZE</small><h2>Settings</h2></div></div><div class="card settings"><label>Currency<select id="currency"><option>₹</option><option>$</option><option>€</option><option>£</option></select></label><label>Theme<select id="themeSelect"><option value="light">Light</option><option value="dark">Dark</option></select></label><button class="danger" onclick="clearData()">Clear all data</button></div></section></main>
+<section class="page" id="reports">
+<div class="title"><div><small>DAILY & MONTHLY</small><h2>Reports</h2></div></div>
+<div class="reporttools">
+  <div class="filters">
+    <div class="filterbox"><label>📅 Daily Report<input type="date" id="dailyDate"></label><div class="settings-note">View and download expenses for one day.</div></div>
+    <div class="filterbox"><label>🗓️ Monthly Report<input type="month" id="monthlyMonth"></label><div class="settings-note">View and download expenses, salary and EMI for one month.</div></div>
+  </div>
+  <div class="reportsummary">
+    <div class="reportstat"><small>Daily Expenses</small><b id="dailyTotal">₹0</b></div>
+    <div class="reportstat"><small>Monthly Expenses</small><b id="monthlyTotal">₹0</b></div>
+    <div class="reportstat"><small>Monthly Salary</small><b id="monthlySalary">₹0</b></div>
+    <div class="reportstat"><small>Monthly EMI</small><b id="monthlyEmi">₹0</b></div>
+  </div>
+  <div class="card">
+    <div class="head"><h3>Daily Report</h3><button class="link" onclick="downloadDaily()">⬇ Download</button></div>
+    <div id="dailyReportList"></div>
+  </div>
+  <div class="card">
+    <div class="head"><h3>Monthly Report</h3><button class="link" onclick="downloadMonthly()">⬇ Download</button></div>
+    <div id="monthlyReportList"></div>
+  </div>
+  <div class="reportgrid">
+    <button class="report" onclick="csv('expenses')">📄 <b>All Expenses CSV</b><small>Complete expense data</small></button>
+    <button class="report" onclick="csv('salary')">💰 <b>Salary CSV</b><small>Month-wise salary</small></button>
+    <button class="report" onclick="csv('emi')">💳 <b>EMI CSV</b><small>Repayment schedule</small></button>
+    <button class="report" onclick="csv('loan')">🏦 <b>Loan CSV</b><small>Loan balances</small></button>
+    <button class="report" onclick="backup()">⬇️ <b>Full Backup</b><small>JSON data</small></button>
+  </div>
+</div></section>
+<section class="page" id="settings">
+<div class="title"><div><small>CUSTOMIZE APP</small><h2>Settings</h2></div></div>
+<div class="card settings">
+  <label>Currency<select id="currency"><option>₹</option><option>$</option><option>€</option><option>£</option></select></label>
+  <label>Theme<select id="themeSelect"><option value="light">Light</option><option value="dark">Dark</option></select></label>
+  <label>Default Report<select id="reportDefault"><option value="daily">Daily Report</option><option value="monthly">Monthly Report</option></select></label>
+  <div class="settings-note">Your settings and finance data are stored privately in this browser using Local Storage.</div>
+  <button class="danger" onclick="clearData()">Clear all data</button>
+</div></section></main>
 <button class="fab" onclick="openForm('expense')">＋</button><div id="modal" class="modal"></div>
 <script>
-const KEY="mithra-final-data";let d=JSON.parse(localStorage.getItem(KEY)||"null")||{expenses:[],salary:[],emi:[],loan:[],currency:"₹",theme:"light"};
+const KEY="mithra-final-data";let d=JSON.parse(localStorage.getItem(KEY)||"null")||{expenses:[],salary:[],emi:[],loan:[],currency:"₹",theme:"light",reportDefault:"daily"};
 const $=s=>document.querySelector(s),$$=s=>document.querySelectorAll(s);
 function money(n){return d.currency+(+n||0).toLocaleString("en-IN",{maximumFractionDigits:2})}
 function save(){localStorage.setItem(KEY,JSON.stringify(d));render()}
-function go(p){$$(".page").forEach(x=>x.classList.remove("active"));$("#"+p).classList.add("active");$$("nav button").forEach(x=>x.classList.toggle("active",x.dataset.page===p))}
+function go(p){$$(".page").forEach(x=>x.classList.remove("active"));$("#"+p).classList.add("active");$$("nav button").forEach(x=>x.classList.toggle("active",x.dataset.page===p));if(p==="reports")updateReports()}
 $$("nav button").forEach(x=>x.onclick=()=>go(x.dataset.page));
-const fields={expense:[["title","Expense name","text"],["amount","Amount","number"],["date","Date","date"],["category","Category","text"]],salary:[["month","Month","month"],["amount","Salary amount","number"],["note","Note","text"]],emi:[["name","EMI name","text"],["amount","Monthly EMI","number"],["due","Due date","date"],["total","Total EMI count","number"],["paid","Paid EMI count","number"]],loan:[["name","Person / Bank name","text"],["amount","Loan amount","number"],["paid","Paid amount","number"],["date","Borrowed date","date"],["due","Due date","date"]]};
+const fields={expense:[["title","Expense name","text"],["amount","Amount","number"],["date","Date","date"],["category","Category","text"]],salary:[["month","Month","month"],["amount","Salary amount","number"],["note","Note","text"]],emi:[["name","EMI name","text"],["amount","Monthly EMI","number"],["firstMonth","First EMI Month","month"],["total","Total EMI count","number"],["paid","Paid EMI count","number"]],loan:[["name","Person / Bank name","text"],["amount","Loan amount","number"],["paid","Paid amount","number"],["date","Borrowed date","date"],["due","Due date","date"]]};
 function openForm(type){let h=fields[type].map(x=>'<input name="'+x[0]+'" placeholder="'+x[1]+'" type="'+x[2]+'" '+(x[0]==="amount"||x[0]==="date"||x[0]==="month"?"required":"")+'>').join("");$("#modal").innerHTML='<form onsubmit="add(event,\''+type+'\')"><button type="button" class="close" onclick="closeForm()">×</button><h3>Add '+type.toUpperCase()+'</h3>'+h+'<button class="save">Save</button></form>';$("#modal").classList.add("show")}
 function closeForm(){$("#modal").classList.remove("show")}
-function add(e,type){e.preventDefault();let f=new FormData(e.target),o={id:Date.now()};f.forEach((v,k)=>o[k]=["amount","paid","total"].includes(k)?Number(v):v);d[type==="expense"?"expenses":type==="salary"?"salary":type==="emi"?"emi":"loan"].unshift(o);closeForm();save()}
+
+function emiSchedule(x){
+  let total=Math.max(0,Number(x.total)||0);
+  let first=(x.firstMonth||x.due||"").slice(0,7);
+  if(!first||!total)return [];
+  if(!Array.isArray(x.schedule)||x.schedule.length!==total){
+    let paid=Math.max(0,Math.min(total,Number(x.paid)||0));
+    x.schedule=Array.from({length:total},(_,i)=>({month:emiMonth(first,i),status:i<paid?"paid":(i===paid?"pending":"notpaid")}));
+  }
+  return x.schedule;
+}
+function emiMonth(ym,n){
+  let [y,m]=ym.split("-").map(Number);m+=n;y+=Math.floor((m-1)/12);m=(m-1)%12+1;
+  return y+"-"+String(m).padStart(2,"0");
+}
+function emiMonthName(ym){
+  let [y,m]=ym.split("-").map(Number);
+  return new Date(y,m-1,1).toLocaleString("en-IN",{month:"short",year:"numeric"});
+}
+function emiStatusName(s){return s==="paid"?"Paid":s==="pending"?"Pending":"Not Paid"}
+function emiStatus(id,i){
+  let x=d.emi.find(a=>a.id===id);if(!x)return;
+  let a=emiSchedule(x),states=["paid","pending","notpaid"],cur=a[i].status||"notpaid";
+  a[i].status=states[(states.indexOf(cur)+1)%3];
+  x.paid=a.filter(v=>v.status==="paid").length;
+  save();
+}
+function emiCard(x){
+  let a=emiSchedule(x),paid=a.filter(v=>v.status==="paid").length,pending=a.filter(v=>v.status==="pending").length,notpaid=a.filter(v=>v.status==="notpaid").length;
+  let total=a.length,totalAmt=(Number(x.amount)||0)*total,paidAmt=(Number(x.amount)||0)*paid;
+  return `<div class="row" style="display:block">
+    <div style="display:flex;justify-content:space-between;align-items:start">
+      <div><b>${esc(x.name)}</b><div class="muted">First EMI ${esc(a[0]?.month||x.firstMonth||x.due||"")} • ${paid}/${total} paid</div></div>
+      <div class="amount">${money(x.amount)}</div>
+    </div>
+    <div class="emi-summary">
+      <div><small>Paid</small><b>${paid}</b></div><div><small>Pending</small><b>${pending}</b></div>
+      <div><small>Not Paid</small><b>${notpaid}</b></div><div><small>Total</small><b>${total}</b></div>
+    </div>
+    <div class="muted">Paid ${money(paidAmt)} / Total repayment ${money(totalAmt)}</div>
+    <div class="emi-schedule"><h4>📅 Repayment Schedule</h4>
+      ${a.map((v,i)=>`<div class="emi-row"><b>${i+1}</b><div><b>${esc(emiMonthName(v.month))}</b><small>${money(x.amount)}</small></div><button class="emi-status ${v.status}" onclick="emiStatus(${x.id},${i})">${emiStatusName(v.status)}</button></div>`).join("")}
+    </div>
+    <button class="del" onclick="del('emi',${x.id})">Delete</button>
+  </div>`;
+}
+
+function add(e,type){e.preventDefault();let f=new FormData(e.target),o={id:Date.now()};f.forEach((v,k)=>o[k]=["amount","paid","total"].includes(k)?Number(v):v);if(type==="emi"){emiSchedule(o);o.paid=o.schedule.filter(v=>v.status==="paid").length}d[type==="expense"?"expenses":type==="salary"?"salary":type==="emi"?"emi":"loan"].unshift(o);closeForm();save()}
 function del(k,id){d[k]=d[k].filter(x=>x.id!==id);save()}
 function list(id,k,fn){$("#"+id).innerHTML=d[k].length?d[k].map(fn).join(""):'<div class="muted">No records yet.</div>'}
-function render(){let m=new Date().toISOString().slice(0,7),inc=d.salary.filter(x=>(x.month||"").slice(0,7)===m).reduce((a,x)=>a+(Number(x.amount)||0),0),exp=d.expenses.filter(x=>(x.date||"").startsWith(m)).reduce((a,x)=>a+x.amount,0);$("#balance").textContent=money(inc-exp);$("#income").textContent=money(inc);$("#expense").textContent=money(exp);$("#income2").textContent=money(inc);$("#expense2").textContent=money(exp);$("#savings").textContent=money(inc-exp);$("#month").textContent=m;
+function render(){let m=new Date().toISOString().slice(0,7),inc=d.salary.filter(x=>x.month===m).reduce((a,x)=>a+x.amount,0),exp=d.expenses.filter(x=>(x.date||"").startsWith(m)).reduce((a,x)=>a+x.amount,0);$("#balance").textContent=money(inc-exp);$("#income").textContent=money(inc);$("#expense").textContent=money(exp);$("#income2").textContent=money(inc);$("#expense2").textContent=money(exp);$("#savings").textContent=money(inc-exp);$("#month").textContent=m;
 let cats={};d.expenses.filter(x=>(x.date||"").startsWith(m)).forEach(x=>cats[x.category||"Other"]=(cats[x.category||"Other"]||0)+x.amount);let mx=Math.max(1,...Object.values(cats));$("#chart").innerHTML=Object.entries(cats).map(([k,v])=>'<div class="barcol"><div class="barwrap"><i class="bar" style="height:'+Math.max(5,v/mx*115)+'px"></i></div>'+k+'</div>').join("")||'<span class="muted">No expenses this month</span>';
 $("#recent").innerHTML=d.expenses.slice(0,5).map(x=>'<div class="row"><div><b>'+esc(x.title)+'</b><div class="muted">'+esc(x.category||"")+' • '+esc(x.date||"")+'</div></div><div class="amount">'+money(x.amount)+'</div></div>').join("")||'<div class="muted">No recent expenses</div>';
 $("#upcoming").innerHTML=d.emi.filter(x=>(x.paid||0)<x.total).slice(0,4).map(x=>'<div class="row"><div><b>'+esc(x.name)+'</b><div class="muted">Due '+esc(x.due)+'</div></div><div class="amount">'+money(x.amount)+'</div></div>').join("")||'<div class="muted">No pending EMI</div>';
-list("expenseList","expenses",x=>'<div class="row"><div><b>'+esc(x.title)+'</b><div class="muted">'+esc(x.category||"")+' • '+esc(x.date||"")+'</div></div><div class="amount">'+money(x.amount)+'</div><button class="del" onclick="del(\\'expenses\\','+x.id+')">Delete</button></div>');
-list("salaryList","salary",x=>'<div class="row"><div><b>'+esc(x.month)+'</b><div class="muted">'+esc(x.note||"")+'</div></div><div class="amount">'+money(x.amount)+'</div><button class="del" onclick="del(\\'salary\\','+x.id+')">Delete</button></div>');
-list("emiList","emi",x=>'<div class="row"><div><b>'+esc(x.name)+'</b><div class="muted">Due '+esc(x.due)+' • '+(x.paid||0)+'/'+x.total+' paid</div></div><div class="amount">'+money(x.amount)+'</div><button class="del" onclick="del(\\'emi\\','+x.id+')">Delete</button></div>');
-list("loanList","loan",x=>'<div class="row"><div><b>'+esc(x.name)+'</b><div class="muted">Remaining '+money(x.amount-(x.paid||0))+'</div></div><div class="amount">'+money(x.amount)+'</div><button class="del" onclick="del(\\'loan\\','+x.id+')">Delete</button></div>');
-$("#currency").value=d.currency;$("#themeSelect").value=d.theme;document.body.classList.toggle("dark",d.theme==="dark")}
+list("expenseList","expenses",x=>`<div class="row"><div><b>${esc(x.title)}</b><div class="muted">${esc(x.category||"")} • ${esc(x.date||"")}</div></div><div class="amount">${money(x.amount)}</div><button class="del" onclick="del('expenses',${x.id})">Delete</button></div>`);
+list("salaryList","salary",x=>`<div class="row"><div><b>${esc(x.month)}</b><div class="muted">${esc(x.note||"")}</div></div><div class="amount">${money(x.amount)}</div><button class="del" onclick="del('salary',${x.id})">Delete</button></div>`);
+list("emiList","emi",emiCard);
+list("loanList","loan",x=>`<div class="row"><div><b>${esc(x.name)}</b><div class="muted">Remaining ${money(x.amount-(x.paid||0))}</div></div><div class="amount">${money(x.amount)}</div><button class="del" onclick="del('loan',${x.id})">Delete</button></div>`);
+if($("#currency"))$("#currency").value=d.currency;if($("#themeSelect"))$("#themeSelect").value=d.theme;if($("#reportDefault"))$("#reportDefault").value=d.reportDefault||"daily";document.body.classList.toggle("dark",d.theme==="dark")}
 function esc(v){return String(v??"").replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[m]))}
 function csv(k){let a=d[k],rows=[Object.keys(a[0]||{name:"",amount:""}),...a.map(x=>Object.values(x))],blob=new Blob([rows.map(r=>r.map(v=>'"'+String(v??"").replaceAll('"','""')+'"').join(",")).join("\\n")],{type:"text/csv"}),u=URL.createObjectURL(blob),a1=document.createElement("a");a1.href=u;a1.download="mithra-"+k+".csv";a1.click();URL.revokeObjectURL(u)}
 function backup(){let b=new Blob([JSON.stringify(d,null,2)],{type:"application/json"}),u=URL.createObjectURL(b),a=document.createElement("a");a.href=u;a.download="mithra-backup.json";a.click();URL.revokeObjectURL(u)}
-function clearData(){if(confirm("Clear all data?")){d={expenses:[],salary:[],emi:[],loan:[],currency:"₹",theme:"light"};save()}}
-$("#theme").onclick=()=>{d.theme=d.theme==="dark"?"light":"dark";save()};$("#themeSelect").onchange=e=>{d.theme=e.target.value;save()};$("#currency").onchange=e=>{d.currency=e.target.value;save()};render();
+
+
+function setReport(type){
+  const now=new Date();
+  if(type==="daily") $("#dailyDate").value=now.toISOString().slice(0,10);
+  if(type==="monthly") $("#monthlyMonth").value=now.toISOString().slice(0,7);
+  updateReports();
+}
+function reportInit(){
+  const now=new Date(), iso=now.toISOString().slice(0,10), mon=iso.slice(0,7);
+  $("#dailyDate").value=d.reportDate||iso; $("#monthlyMonth").value=d.reportMonth||mon;
+  $("#reportDefault").value=d.reportDefault||"daily";
+  updateReports();
+}
+function updateReports(){
+  const day=$("#dailyDate").value, mon=$("#monthlyMonth").value;
+  d.reportDate=day; d.reportMonth=mon; localStorage.setItem(KEY,JSON.stringify(d));
+  const de=d.expenses.filter(x=>x.date===day), me=d.expenses.filter(x=>(x.date||"").startsWith(mon));
+  const sal=d.salary.filter(x=>x.month===mon), em=d.emi.filter(x=>x.due&&x.due.slice(0,7)===mon);
+  $("#dailyTotal").textContent=money(de.reduce((a,x)=>a+x.amount,0));
+  $("#monthlyTotal").textContent=money(me.reduce((a,x)=>a+x.amount,0));
+  $("#monthlySalary").textContent=money(sal.reduce((a,x)=>a+x.amount,0));
+  $("#monthlyEmi").textContent=money(em.reduce((a,x)=>a+x.amount,0));
+  $("#dailyReportList").innerHTML=de.length?de.map(x=>'<div class="row"><div><b>'+esc(x.title)+'</b><div class="muted">'+esc(x.category||"")+'</div></div><div class="amount">'+money(x.amount)+'</div></div>').join(""):'<div class="muted">No expenses on '+esc(day)+'.</div>';
+  $("#monthlyReportList").innerHTML=me.length?me.map(x=>'<div class="row"><div><b>'+esc(x.title)+'</b><div class="muted">'+esc(x.date||"")+' • '+esc(x.category||"")+'</div></div><div class="amount">'+money(x.amount)+'</div></div>').join(""):'<div class="muted">No expenses in '+esc(mon)+'.</div>';
+}
+function downloadRows(filename, headers, rows){
+  const all=[headers,...rows], blob=new Blob([all.map(r=>r.map(v=>'"'+String(v??"").replaceAll('"','""')+'"').join(",")).join("\\n")],{type:"text/csv"});
+  const u=URL.createObjectURL(blob), a=document.createElement("a"); a.href=u; a.download=filename; a.click(); URL.revokeObjectURL(u);
+}
+function downloadDaily(){
+  const day=$("#dailyDate").value, rows=d.expenses.filter(x=>x.date===day).map(x=>[x.date,x.title,x.category||"",x.amount]);
+  downloadRows("mithra-daily-report-"+day+".csv",["Date","Expense","Category","Amount"],rows);
+}
+function downloadMonthly(){
+  const mon=$("#monthlyMonth").value, rows=[];
+  d.expenses.filter(x=>(x.date||"").startsWith(mon)).forEach(x=>rows.push(["Expense",x.date,x.title,x.category||"",x.amount]));
+  d.salary.filter(x=>x.month===mon).forEach(x=>rows.push(["Salary",x.month,x.note||"Salary","",x.amount]));
+  d.emi.filter(x=>x.due&&x.due.slice(0,7)===mon).forEach(x=>rows.push(["EMI",x.due,x.name,"Monthly EMI",x.amount]));
+  downloadRows("mithra-monthly-report-"+mon+".csv",["Type","Date/Month","Name","Category","Amount"],rows);
+}
+function clearData(){if(confirm("Clear all data?")){d={expenses:[],salary:[],emi:[],loan:[],currency:"₹",theme:"light",reportDefault:"daily"};save();reportInit()}}
+$("#theme").onclick=()=>{d.theme=d.theme==="dark"?"light":"dark";save()};$("#themeSelect").onchange=e=>{d.theme=e.target.value;save()};$("#currency").onchange=e=>{d.currency=e.target.value;save()};$("#reportDefault").onchange=e=>{d.reportDefault=e.target.value;save()};$("#dailyDate").onchange=updateReports;$("#monthlyMonth").onchange=updateReports;render();reportInit();
 </script></body></html>

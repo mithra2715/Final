@@ -1,1 +1,1 @@
-Original first working version retained. ONLY Total Income salary calculation was changed. No other UI, features, EMI, reports, settings, expenses, loan, or salary-form changes were made.
+This version keeps the previous Mithra UI/options unchanged. Only EMI was modified for first EMI month + month-wise repayment schedule + Paid/Pending/Not Paid statuses and totals.

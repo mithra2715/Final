@@ -1,7 +1,12 @@
-# Mithra Expenses Tracker V2
+# Mithra Expenses Tracker - FINAL
+This version is a single-file GitHub Pages app. CSS and JavaScript are embedded in index.html, so it will not show the unstyled HTML problem caused by missing CSS paths.
 
-Modern responsive finance UI inspired by the supplied second design reference.
+## Important
+Upload ONLY this `index.html` to the root of the GitHub Pages branch/folder used by the site. Replace the old `index.html`.
 
-Features: expenses, month-wise salary, EMI, Loan, reports/CSV, JSON backup, settings, dark/light theme, local storage, mobile bottom navigation, responsive desktop UI.
+If the GitHub Pages URL is `https://mithra2715.github.io/Final/`, the file must be inside the `Final` folder if the Pages source is the repository root, or at the selected Pages publishing root.
 
-GitHub Pages: upload all files and enable Pages from the main branch root.
+After replacing it, wait for GitHub Pages to redeploy and hard-refresh the browser.
+
+Features:
+Home, Expenses, month-wise Salary, EMI, Loan, Reports CSV/JSON, Settings, dark/light theme, responsive mobile bottom navigation, local browser storage.
